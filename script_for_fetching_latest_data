@@ -1,0 +1,15 @@
+import os
+import tarfile
+import urllib
+
+DOWNLOAD_ROOT=" " //give the link to any github/website containing the dataset
+DATASET_PATH=os.path.join("datasets","name_of_ur_dataset ")
+DATASET_URL=DOWNLOAD_ROOT+"datasets/name_of_ur_dataset/name_of_ur_dataset.tgz"
+
+def fetch_dataset(dataset_url=DATASET_URL,dataset_path=DATASET_PATH):
+    os.makedirs(daatset_path,exist_ok=True)
+    tgz_path=os.path.join(dataset_path,"name_of_ur_dataset.tgz")
+    urllib.request.urlretreive(dataset_url,tgz_path)
+    dataset_tgz=tarfile.open(tgz_path)
+    dataset_tgz.extractall(path=dataset_path)
+    dataset_tgz.close()
